@@ -58,7 +58,7 @@ for iter = 1:num_labels
      initial_theta = zeros(n + 1, 1);
 %     
 %     % Set options for fminunc
-     options = optimset('GradObj', 'on', 'MaxIter', 50);
+     options = optimset('GradObj', 'on', 'MaxIter', 5000);
      
      cost=1;
      theta = initial_theta;
@@ -66,7 +66,7 @@ for iter = 1:num_labels
 %     % Run fmincg to obtain the optimal theta
 %     % This function will return theta and the cost 
      [theta, cost] = fmincg (@(t)(lrCostFunction(t, X, (y == iter), lambda)), initial_theta, options);
-     fprintf('\nFound min cost: %f for classifier: %i\n', cost, iter);
+     %fprintf('\nFound min cost: %f for classifier: %i\n', cost, iter);
        
      all_theta(iter,:) = theta;
 end
